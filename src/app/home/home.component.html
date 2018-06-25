@@ -1,6 +1,13 @@
-<div class="form-group">
+<div class="form-group" id="flie">
   <label for="file">Choose File</label>
   <input type="file"
          id="file"
          (change)="handleFileInput($event.target.files)">
 </div>
+
+<select id="car"> 
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>

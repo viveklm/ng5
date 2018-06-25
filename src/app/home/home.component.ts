@@ -32,20 +32,24 @@ export class HomeComponent implements OnInit {
   }
 
   postFile(fileToUpload: File): Observable<any> {
-    let username: string = 'Administrator';
-    let password: string = 'Administrator';
-    const endpoint = 'http://localhost:8080/nuxeo/api/v1/upload';
+    const endpoint = 'https://dtestsecureservices.fadavis.com:443/ShoppingCart/api/ShoppingCart/LoadShoppingCartItems';
     const httpOptions = {
       headers: {
-        'Authorization': "Basic " + btoa(username + ":" + password),
-        "Content-Type": "application/json",
-        "withCredentials": "true",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE"
+        "Content-Type": "application/json"
       }
     };
+    const body = {
+      "AccountID": 0,
+      "PromoCode": "string",
+      "ShoppingCartGUID": "30DCD94B-6D4F-4F99-9D66-A69C95926D72",
+      "ProductID": 0,
+      "Quantity": 0,
+      "ShoppingCartID": 0,
+      "ProductIDs": "string"
+    }
+  
     return this.http
-      .post(endpoint, fileToUpload, httpOptions);
+      .post(endpoint, body, httpOptions);
   }
 
   private handleError(error: Response | any) {
